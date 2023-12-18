@@ -9,6 +9,7 @@ const SearchedUser = () => {
     const [followersCount, setFollowersCount] = useState(0)
     const [followersList, setFollowersList] = useState()
     const [followingList, setFollowingList] = useState()
+    const [posts, setPosts] = useState([])
     const { userId } = useParams();
 
     const getLoggedInUser = () => {
@@ -49,6 +50,17 @@ const SearchedUser = () => {
         }
     };
 
+    const fetchpost = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3001/post/get/searchuser/post/${userId}`);
+            console.log('Post Response:', response.data);
+            setPosts(response.data);
+        } catch (error) {
+            console.error('Error fetching posts:', error);
+        }
+    };
+    
+
     useEffect(() => {
         const loggedInUserId = getLoggedInUser();
         if (loggedInUserId) {
@@ -56,6 +68,7 @@ const SearchedUser = () => {
         }
 
         fetchUser();
+        fetchpost()
     }, [userId]);
 
     const handleFollow = async () => {
@@ -102,7 +115,7 @@ const SearchedUser = () => {
         } catch (error) {
             console.error('Error in fetching following list:', error);
         }
-       
+
     }
 
     return (
@@ -120,7 +133,7 @@ const SearchedUser = () => {
                     ))}
                     <p onClick={followingLists}>Following:{user.following.length}</p>
                     {
-                        followingList?.map((user)=>(
+                        followingList?.map((user) => (
                             <div key={user._id}>
                                 <a href={`/profile/${user._id}`}>
                                     {user.userName}
@@ -133,6 +146,13 @@ const SearchedUser = () => {
                         <>
                             <button>Edit Profile</button>
                             <button>Share Profile</button>
+                            {
+                                posts?.map((post)=>(
+                                    <div key={post._id}>
+                                        <p>{post.content}</p>
+                                    </div>
+                                ))
+                            }
                         </>
                     ) : (
                         <>
@@ -141,6 +161,13 @@ const SearchedUser = () => {
                             ) : (
                                 <button onClick={handleFollow}>Follow</button>
                             )}
+                             {
+                                posts?.map((post)=>(
+                                    <div key={post._id}>
+                                        <p>{post.content}</p>
+                                    </div>
+                                ))
+                            }
                         </>
                     )}
                 </>
