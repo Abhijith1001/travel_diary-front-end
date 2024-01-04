@@ -10,7 +10,7 @@ const Following = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`http://localhost:3001/followinguser/following/content/${userId}`);
-                setFollowingContent(response.data.posts);
+                setFollowingContent(response.data);
                 console.log(response.data);
             } catch (error) {
                 console.error('Error fetching following users\' posts:', error);
