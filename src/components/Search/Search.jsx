@@ -11,6 +11,7 @@ import {
     DrawerCloseButton,
 } from '@chakra-ui/react'
 import { Box, Button, Input, useDisclosure } from '@chakra-ui/react';
+import { FaSearch } from "react-icons/fa";
 
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -47,7 +48,7 @@ const Search = () => {
             } */}
 
             <>
-                <p ref={btnRef} colorScheme='teal' onClick={onOpen}>
+                <p ref={btnRef} colorScheme='teal' style={{ fontWeight: 'bold',cursor:'pointer' }} onClick={onOpen} >
                     Search
                 </p>
                 <Drawer

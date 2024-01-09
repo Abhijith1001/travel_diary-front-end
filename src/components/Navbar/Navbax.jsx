@@ -4,10 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import Search from '../Search/Search';
 import './Navbar.css'; // Import the CSS file
 import MyProfile from '../Profile/MyProfile';
+import LogoImage from '../../Logo/Kabaddi.png';  // Adjust the path based on your project structure
 
 const Navbar = ({ onLogout, userId }) => {
   const navigate = useNavigate();
-  const [selectedItem, setSelectedItem] = useState('Home');
+  const [selectedItem, setSelectedItem] = useState('Profile');
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -35,20 +36,31 @@ const Navbar = ({ onLogout, userId }) => {
       {/* Sidebar for tablets and desktops */}
       <div className="navbar-container">
         <div className="sidebar">
-          <h2>Travel Dairy</h2>
-          <ul>
+          <h2 style={{ paddingLeft: 50, paddingTop: 0 }}>
+            <img src={LogoImage} alt="Logo" />  {/* Use the img tag for displaying the logo */}
+          </h2>
+          <ul style={{ listStyleType: 'none', padding: 60,paddingleft: 80 }}>
             {['Home', 'Profile'].map((item) => (
-              <li key={`link-${item}`} onClick={() => handleItemClick(item)}>
+              <li key={`link-${item}`}
+                onClick={() => handleItemClick(item)}
+                className={selectedItem === item ? 'active' : ''}>
                 <div />
-                <a href={`#${item}`}>{item}</a>
+                <a href={`#${item}`}>{item}</a> <br /><br />
               </li>
             ))}
-            <Search />
-            <button onClick={handleLogout}>Logout</button>
+            <Search /><br />
+
+            <button style={{ fontWeight: 'bold' }} onClick={handleLogout}>
+              Logout
+            </button>
           </ul>
         </div>
-        <div className="content" style={{ flex: 1, padding: '20px' }}>
-          {renderContent()}
+        <div className="content" style={{ display: 'flex', padding: '20px' }}>
+          {/* Rendered content */}
+          <div style={{ marginLeft: '20px' }}>{renderContent()}</div>
+
+          <Search />
+
         </div>
       </div>
 
@@ -65,6 +77,7 @@ const Navbar = ({ onLogout, userId }) => {
             <Search />
           </li>
           <li onClick={handleLogout}>
+
             <div />
             Logout
           </li>

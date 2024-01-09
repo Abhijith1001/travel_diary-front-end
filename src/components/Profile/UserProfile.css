@@ -1,0 +1,126 @@
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-header img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  .user-info {
+    flex: 1;
+    margin-left: 20px;
+  }
+  
+  .user-info h2 {
+    margin: 0;
+  }
+  
+  .follow-button {
+    background-color: #3897f0;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .followers-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .followers-section p {
+    margin: 0;
+    cursor: pointer;
+    color: #262626;
+    font-weight: bold;
+  }
+  
+  .follow-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .follow-list a {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #262626;
+    font-weight: bold;
+  }
+  
+  .posts-section {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .post {
+    width: 32%;
+    margin: 1%;
+    position: relative;
+  }
+  
+  .post img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .edit-profile-button,
+  .share-profile-button {
+    background-color: #fff;
+    color: #262626;
+    border: 1px solid #dbdbdb;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .logout-button {
+    background-color: #ff4500;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  
+/* Media query for mobile devices */
+@media only screen and (max-width: 600px) {
+    .profile-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .profile-header img {
+      margin-bottom: 10px;
+    }
+  
+    .user-info {
+      text-align: center;
+    }
+  
+    .edit-profile-button,
+    .share-profile-button,
+    .logout-button,
+    .follow-button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  

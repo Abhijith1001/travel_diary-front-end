@@ -4,6 +4,7 @@ import SignIn from './components/Sign_in/Signin';
 import SignUp from './components/Sign_up/Signup';
 import Navbar from './components/Navbar/Navbax';
 import SearchedUser from './components/Search/SearchedUser';
+import SharedPostView from './components/SharePost/ViewSharedpost'; // Import the new component
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -48,6 +49,8 @@ const App = () => {
         )}
 
         <Route path='/profile/:userId' element={<SearchedUser />} />
+
+        <Route path='/post/shareposts/:postId' element={<SharedPostView />} />
       </Routes>
     </Router>
   );

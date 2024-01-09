@@ -1,0 +1,16 @@
+/* Following.css */
+
+/* Hide the vertical scrollbar */
+.overflow-hidden::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+/* Hide the horizontal scrollbar (if needed) */
+.overflow-hidden::-webkit-scrollbar-horizontal {
+    display: none !important;
+}
+
+/* Optional: Adjust other styles as needed */
+.overflow-hidden {
+    overflow: hidden;
+}
